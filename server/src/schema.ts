@@ -4,6 +4,8 @@ export const typeDefs = gql`
   type Query {
     "Get tracks array for homepage grid"
     tracksForHome: [Track!]!
+    "get a single track by id, for track detail page"
+    track(id: ID!): Track
   }
 
   "A track is a group of Modules that teaches about a specific topic"
@@ -19,6 +21,12 @@ export const typeDefs = gql`
     length: Int
     "The number of modules this track contains"
     modulesCount: Int
+    "Track complete description"
+    description: String
+    "Number of times track has been viewed"
+    numberOfViews: Int
+    "Track's complete array of modules"
+    modules: [Module!]!
   }
 
   "Author of a complete Track"
@@ -28,5 +36,13 @@ export const typeDefs = gql`
     name: String!
     "Author's profile picture url"
     photo: String
+  }
+
+  type Module {
+    id: ID!
+    "Module title"
+    title: String!
+    "Module length in minutes"
+    length: Int
   }
 `;

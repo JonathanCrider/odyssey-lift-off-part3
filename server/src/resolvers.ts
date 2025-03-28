@@ -6,10 +6,19 @@ export const resolvers: Resolvers = {
     tracksForHome: (_, __, { dataSources }) => {
       return dataSources.trackAPI.getTracksForHome();
     },
+    // get a single track by id, for track detail page
+    track: (_, { id }, { dataSources }) => {
+      return dataSources.trackAPI.getTrack(id)
+    }
   },
   Track: {
+    // get author for a track
     author: ({ authorId }, _, { dataSources }) => {
       return dataSources.trackAPI.getAuthor(authorId);
     },
-  },
+    // get all modules for a track
+    modules: ({ id }, _, { dataSources }) => {
+      return dataSources.trackAPI.getTrackModules(id)
+    }
+  }
 };
