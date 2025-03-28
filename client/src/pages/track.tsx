@@ -5,7 +5,7 @@ import { Layout, QueryResult } from '../components'
 import TrackDetail from '../components/track-detail'
 import { useParams } from 'react-router-dom'
 
-const GET_TRACK = gql(`
+export const GET_TRACK = gql(`
     query GetTrack($trackId: ID!) {
       track(id: $trackId) {
         id
